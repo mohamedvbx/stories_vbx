@@ -213,32 +213,36 @@
     <script>
         // بيانات قصص الأنبياء
         const prophetsStories = [
-            { title: "آدم عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "Prophets/adam.html" },
-            { title: "إدريس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "idris.html" },
-            { title: "نوح عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "noah.html" },
-            { title: "هود عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "hud.html" },
-            { title: "صالح عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "saleh.html" },
-            { title: "إبراهيم عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ibrahim.html" },
-            { title: "لوط عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "lut.html" },
-            { title: "إسماعيل عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ismail.html" },
-            { title: "إسحاق عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ishaq.html" },
-            { title: "يعقوب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yaqoob.html" },
-            { title: "يوسف عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yusuf.html" },
-            { title: "أيوب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ayyoub.html" },
-            { title: "شعيب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "shuaib.html" },
-            { title: "موسى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "mosa.html" },
-            { title: "هارون عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "haroon.html" },
-            { title: "ذو الكفل عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "zulkifl.html" },
-            { title: "داود عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "dawud.html" },
-            { title: "سليمان عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "sulaiman.html" },
-            { title: "إلياس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ilyas.html" },
-            { title: "اليسع عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "alyasa.html" },
-            { title: "يونس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yunus.html" },
-            { title: "زكريا عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "zakariya.html" },
-            { title: "يحيى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yahya.html" },
-            { title: "عيسى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "isa.html" },
-            { title: "محمد صلى الله عليه وسلم", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "muhammad.html" }
-        ];
+
+[
+    { title: "آدم عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/adam.html" },
+    { title: "إدريس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/idris.html" },
+    { title: "نوح عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/noah.html" },
+    { title: "هود عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/hud.html" },
+    { title: "صالح عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/saleh.html" },
+    { title: "إبراهيم عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/ibrahim.html" },
+    { title: "لوط عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/lut.html" },
+    { title: "إسماعيل عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/ismail.html" },
+    { title: "إسحاق عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/ishaq.html" },
+    { title: "يعقوب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/yaqoob.html" },
+    { title: "يوسف عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/yusuf.html" },
+    { title: "أيوب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/ayyoub.html" },
+    { title: "شعيب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/shuaib.html" },
+    { title: "موسى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/mosa.html" },
+    { title: "هارون عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/haroon.html" },
+    { title: "ذو الكفل عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/zulkifl.html" },
+    { title: "داود عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/dawud.html" },
+    { title: "سليمان عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/sulaiman.html" },
+    { title: "إلياس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/ilyas.html" },
+    { title: "اليسع عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/alyasa.html" },
+    { title: "يونس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/yunus.html" },
+    { title: "زكريا عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/zakariya.html" },
+    { title: "يحيى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/yahya.html" },
+    { title: "عيسى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/isa.html" },
+    { title: "محمد صلى الله عليه وسلم", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "prophets/muhammad.html" }
+];
+
+            
 
         // عرض قصص الأنبياء
         function displayStories() {
