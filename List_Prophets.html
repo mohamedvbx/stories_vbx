@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصص الأنبياء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #fff;
+            --navbar-bg: #fff;
+            --search-bg: #f1f3f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary-color: #6a8cc7;
+            --secondary-color: #3a7ca5;
+            --text-color: #f8f9fa;
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --navbar-bg: #16213e;
+            --search-bg: #0f3460;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--navbar-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .navbar-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: var(--search-bg);
+            border-radius: 30px;
+            padding: 8px 15px;
+            width: 300px;
+            transition: var(--transition);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 5px;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .search-box i {
+            color: var(--primary-color);
+            margin-left: 10px;
+        }
+
+        .theme-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Stories Grid */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .story-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--primary-color);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .story-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .story-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .story-prophet {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .theme-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="navbar-title">قصص الأنبياء</div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث عن قصة نبي...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="theme-switcher">
+                <button class="theme-btn" id="day-mode">
+                    <i class="fas fa-sun"></i> نهاري
+                </button>
+                <button class="theme-btn" id="night-mode">
+                    <i class="fas fa-moon"></i> ليلي
+                </button>
+            </div>
+        </nav>
+
+        <!-- Stories Grid -->
+        <div class="stories-grid" id="storiesGrid">
+            <!-- سيتم ملء هذا القسم ديناميكيًا -->
+        </div>
+    </div>
+
+    <script>
+        // بيانات قصص الأنبياء
+        const prophetsStories = [
+            { title: "آدم عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "Prophets/adam.html" },
+            { title: "إدريس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "idris.html" },
+            { title: "نوح عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "noah.html" },
+            { title: "هود عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "hud.html" },
+            { title: "صالح عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "saleh.html" },
+            { title: "إبراهيم عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ibrahim.html" },
+            { title: "لوط عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "lut.html" },
+            { title: "إسماعيل عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ismail.html" },
+            { title: "إسحاق عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ishaq.html" },
+            { title: "يعقوب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yaqoob.html" },
+            { title: "يوسف عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yusuf.html" },
+            { title: "أيوب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ayyoub.html" },
+            { title: "شعيب عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "shuaib.html" },
+            { title: "موسى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "mosa.html" },
+            { title: "هارون عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "haroon.html" },
+            { title: "ذو الكفل عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "zulkifl.html" },
+            { title: "داود عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "dawud.html" },
+            { title: "سليمان عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "sulaiman.html" },
+            { title: "إلياس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "ilyas.html" },
+            { title: "اليسع عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "alyasa.html" },
+            { title: "يونس عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yunus.html" },
+            { title: "زكريا عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "zakariya.html" },
+            { title: "يحيى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "yahya.html" },
+            { title: "عيسى عليه السلام", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "isa.html" },
+            { title: "محمد صلى الله عليه وسلم", image: "https://i.postimg.cc/7Lf8NfsQ/open-book-1.png", file: "muhammad.html" }
+        ];
+
+        // عرض قصص الأنبياء
+        function displayStories() {
+            const storiesGrid = document.getElementById("storiesGrid");
+            storiesGrid.innerHTML = "";
+
+            prophetsStories.forEach(story => {
+                const storyCard = document.createElement("div");
+                storyCard.className = "story-card";
+                storyCard.innerHTML = `
+                    <img src="${story.image}" alt="${story.title}" class="story-image">
+                    <div class="story-content">
+                        <h3 class="story-title">${story.title.split(" ")[0]}</h3>
+                        <p class="story-prophet">${story.title}</p>
+                    </div>
+                `;
+                
+                storyCard.addEventListener("click", () => {
+                    window.location.href = story.file;
+                });
+                
+                storiesGrid.appendChild(storyCard);
+            });
+        }
+
+        // البحث عن القصص
+        document.getElementById("searchInput").addEventListener("input", function() {
+            const searchText = this.value.toLowerCase();
+            const storyCards = document.querySelectorAll(".story-card");
+
+            storyCards.forEach(card => {
+                const title = card.querySelector(".story-title").innerText.toLowerCase();
+                const prophet = card.querySelector(".story-prophet").innerText.toLowerCase();
+                card.style.display = title.includes(searchText) || prophet.includes(searchText) ? "flex" : "none";
+            });
+        });
+
+        // Theme Switcher
+        document.getElementById("day-mode").addEventListener("click", function() {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        });
+
+        document.getElementById("night-mode").addEventListener("click", function() {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        });
+
+        // تحميل القصص عند فتح الصفحة
+        displayStories();
+
+        // Check for saved theme preference
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    </script>
+</body>
+</html>

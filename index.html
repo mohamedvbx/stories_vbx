@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القائمة الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #fff;
+            --navbar-bg: #fff;
+            --search-bg: #f1f3f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary-color: #6a8cc7;
+            --secondary-color: #3a7ca5;
+            --text-color: #f8f9fa;
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --navbar-bg: #16213e;
+            --search-bg: #0f3460;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--navbar-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .navbar-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: var(--search-bg);
+            border-radius: 30px;
+            padding: 8px 15px;
+            width: 300px;
+            transition: var(--transition);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 5px;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .search-box i {
+            color: var(--primary-color);
+            margin-left: 10px;
+        }
+
+        .theme-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Main Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 2px solid var(--primary-color);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .category-count {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .theme-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="navbar-title">القائمة الرئيسية</div>
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن محتوى...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="theme-switcher">
+                <button class="theme-btn" id="day-mode">
+                    <i class="fas fa-sun"></i> نهاري
+                </button>
+                <button class="theme-btn" id="night-mode">
+                    <i class="fas fa-moon"></i> ليلي
+                </button>
+            </div>
+        </nav>
+
+        <!-- Categories Grid -->
+        <div class="categories-grid">
+            <!-- Column 1 -->
+            <div class="category-card" onclick="location.href='List_novels.html'">
+                <i class="fas fa-book-open category-icon"></i>
+                <div class="category-title">روايات</div>
+                <div class="category-count">١ رواية</div>
+            </div>
+            
+            <div class="category-card" onclick="location.href='List_short_stories.html'">
+                <i class="fas fa-scroll category-icon"></i>
+                <div class="category-title">قصص قصيرة</div>
+                <div class="category-count">0 قصة</div>
+            </div>
+            
+            <div class="category-card" onclick="location.href='غموض.html'">
+                <i class="fas fa-search category-icon"></i>
+                <div class="category-title">قصص غموض</div>
+                <div class="category-count">0 قصة</div>
+            </div>
+            
+            <div class="category-card" onclick="location.href='تاريخية.html'">
+                <i class="fas fa-landmark category-icon"></i>
+                <div class="category-title">روايات تاريخية</div>
+                <div class="category-count">0 رواية</div>
+            </div>
+            
+            <!-- Column 2 -->
+            <div class="category-card" onclick="location.href='List_Prophets.html'">
+                <i class="fas fa-mosque category-icon"></i>
+                <div class="category-title">قصص الأنبياء</div>
+                <div class="category-count">25 قصة</div>
+            </div>
+            
+            <div class="category-card" onclick="location.href='خيال.html'">
+                <i class="fas fa-rocket category-icon"></i>
+                <div class="category-title">بوستات</div>
+                <div class="category-count">عدد غير محدود</div>
+            </div>
+            
+            <div class="category-card" onclick="location.href='رومانسية.html'">
+                <i class="fas fa-heart category-icon"></i>
+                <div class="category-title">رومانسية</div>
+                <div class="category-count">0 رواية</div>
+            </div>
+            
+            <div class="category-card" onclick="location.href='كوميديا.html'">
+                <i class="fas fa-laugh category-icon"></i>
+                <div class="category-title">كوميديا</div>
+                <div class="category-count">0 قصة</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Switcher
+        document.getElementById('day-mode').addEventListener('click', function() {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        });
+
+        document.getElementById('night-mode').addEventListener('click', function() {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Search functionality
+        document.querySelector('.search-box input').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value.trim().toLowerCase();
+                if (searchTerm) {
+                    alert(`سيتم البحث عن: ${searchTerm}`);
+                    // يمكنك إضافة وظيفة البحث الفعلية هنا
+                }
+            }
+        });
+    </script>
+</body>
+</html>
