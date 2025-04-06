@@ -656,7 +656,7 @@
         // جلب بيانات الروايات من ملف JSON
         async function fetchBooksData() {
             try {
-                const response = await fetch('Novels-data.json');
+                const response = await fetch('books-data.json');
                 
                 if (!response.ok) {
                     throw new Error('فشل في جلب البيانات. تأكد من الاتصال بالانترنت، اذا استمرت المشكلة ابلغ الادارة فورا بذالك ');
