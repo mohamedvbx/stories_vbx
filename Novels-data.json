@@ -1,0 +1,20 @@
+[
+    {
+        "title": "ثلاث بنات بثانوية عيال",
+        "imageUrl": "https://i.postimg.cc/Hk61vwSC/images-3.jpg",
+        "genre": ["رومانسية", "مغامرة"],
+        "chapters": 8,
+        "author": "ثامر آل عبدالعزيز",
+        "description": "ثلاث بنات ايتام بعد خروجهم من دار الايتام تعرضوا لمغامرات شيقه.. ماهي ؟! اقرأوا وستعلمون !! قصة منقووولة للكاتب: ثامر ال عبد العزيز",
+        "link": "story.html?Novel=Three_girls.json"
+    },
+    {
+        "title": "اسيرة الشيطان",
+        "imageUrl": "https://i.postimg.cc/8zW6cTZn/61f919e7aa597-600x480.webp",
+        "genre": ["رومانسية", "غموض", "دراما", "إثارة"],
+        "chapters": 22,
+        "author": "دينا جمال",
+        "description": "شابة تجبر علي الزواج من شاب غني وتظن انه شيطان، وتجد ان ماضيه ملئ بالاسرار",
+        "link": "Novels/asert.html"
+    }
+]
